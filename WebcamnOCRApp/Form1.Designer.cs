@@ -29,6 +29,7 @@ namespace WebcamnOCRApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cboWebcam = new System.Windows.Forms.ComboBox();
             this.pic = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@ namespace WebcamnOCRApp
             this.button1 = new System.Windows.Forms.Button();
             this.picSnapped = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSnapped)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +104,12 @@ namespace WebcamnOCRApp
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +141,7 @@ namespace WebcamnOCRApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox picSnapped;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,7 @@ namespace WebcamnOCRApp
         private void Videocptdev_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             pic.Image = (Bitmap)eventArgs.Frame.Clone();
+            //Tessaract((Bitmap)eventArgs.Frame.Clone());
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,8 +66,13 @@ namespace WebcamnOCRApp
         private void button1_Click(object sender, EventArgs e)
         {
             picSnapped.Image = pic.Image;
+            Tessaract(pic.Image);
+
+        }
+        private void Tessaract(Image img)
+        {
             var Ocr = new IronTesseract();
-            using (var Input = new OcrInput(picSnapped.Image))
+            using (var Input = new OcrInput(img))
             {
                 //Ocr.Language = OcrLanguage.EnglishBest;
                 //Input.Deskew();  // use if image not straight
@@ -75,19 +82,29 @@ namespace WebcamnOCRApp
                 Configuration = new TesseractConfiguration()
                 {
                     ReadBarCodes = true,
-                    BlackListCharacters = "`ë|^",
-                    RenderSearchablePdfsAndHocr = true,
+                    //BlackListCharacters = "`ë|^",
+                    //RenderSearchablePdfsAndHocr = true,
                     PageSegmentationMode = TesseractPageSegmentationMode.AutoOsd,
                 };
                 Input.Deskew();
-                Input.DeNoise();
-                Input.Dilate();
-                //Input.EnhanceResolution(300);
+                //Input.DeNoise();
+                //Input.Dilate();
+                Input.Sharpen();
+                Input.ToGrayScale();
+                Input.SaveAsImages("test", OcrInput.ImageType.PNG);
+                //Process.Start("test_0.PNG");
                 var Result = Ocr.Read(Input);
                 Console.WriteLine(Result.Text);
-                richTextBox1.Clear();
+                //richTextBox1.Clear();
                 richTextBox1.Text = Result.Text;
+                Console.WriteLine(Result.Lines.Length);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (videocptdev.IsRunning == true)
+                button1.PerformClick();
         }
     }
 }
