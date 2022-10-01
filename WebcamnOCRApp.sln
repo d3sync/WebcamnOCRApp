@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32630.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebcamnOCRApp", "WebcamnOCRApp\WebcamnOCRApp.csproj", "{9345692C-BACD-4262-A5C3-EB0F6400536C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCamNOCR", "WebCamNOCR\WebCamNOCR.csproj", "{EAB2C35F-6512-45BE-9068-B5CDCF39A9BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9345692C-BACD-4262-A5C3-EB0F6400536C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9345692C-BACD-4262-A5C3-EB0F6400536C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9345692C-BACD-4262-A5C3-EB0F6400536C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9345692C-BACD-4262-A5C3-EB0F6400536C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB2C35F-6512-45BE-9068-B5CDCF39A9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB2C35F-6512-45BE-9068-B5CDCF39A9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB2C35F-6512-45BE-9068-B5CDCF39A9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB2C35F-6512-45BE-9068-B5CDCF39A9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50F0DAAE-753A-4722-8EC6-5F4208D57A48}
+	EndGlobalSection
+EndGlobal
